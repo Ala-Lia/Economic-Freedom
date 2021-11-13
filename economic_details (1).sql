@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 13, 2021 at 10:56 PM
+-- Generation Time: Nov 13, 2021 at 11:30 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `economic details` (
   `ID` int(11) NOT NULL,
   `Country name` varchar(56) NOT NULL,
-  `RegionID` int(10) NOT NULL,
+  `RegionID` int(11) NOT NULL,
   `World Rank` int(10) UNSIGNED NOT NULL,
   `Region Rank` int(10) UNSIGNED NOT NULL,
   `2020 score` float NOT NULL,
@@ -45,7 +45,13 @@ CREATE TABLE `economic details` (
   `Monetary Freedom` float NOT NULL,
   `Trade Freedom` float NOT NULL,
   `Investment Freedom` float NOT NULL,
-  `Financial Freedom` float NOT NULL
+  `Financial Freedom` float NOT NULL,
+  `Income Tax Rate %` float NOT NULL,
+  `Corporate Tax Rate %` float NOT NULL,
+  `Tax Burden % of GDP` float NOT NULL,
+  `Gov't Expenditure % of GDP` float NOT NULL,
+  `Population (Millions)` float NOT NULL,
+  `Inflation %` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -56,7 +62,8 @@ CREATE TABLE `economic details` (
 -- Indexes for table `economic details`
 --
 ALTER TABLE `economic details`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `RegionID` (`RegionID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
